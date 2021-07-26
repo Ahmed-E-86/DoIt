@@ -244,6 +244,18 @@
                 Please enable JavaScript to view the comments powered by <a href="https://vssue.js.org/">Vssue</a>.
             </noscript>
         {{- end -}}
+
+        {{- /* IntenseDebate Comment System */ -}}
+        {{- $intensedebate := $comment.intensedebate | default dict -}}
+        {{- if $intensedebate.enable -}}
+            <script>
+                var idcomments_acct = {{ $intensedebate.acct }};
+                var idcomments_post_id;
+                var idcomments_post_url;
+            </script>
+            <span id="IDCommentsPostTitle" style="display:none"></span>
+            <script type='text/javascript' src='https://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+        {{- end -}}
     </div>
 {{- end -}}
 
